@@ -1,4 +1,5 @@
 import 'package:new_strucuture/core/exports.dart';
+
 class CustomTextField extends StatefulWidget {
   final String? labelText;
   final Function()? onTap;
@@ -76,12 +77,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
             onChanged: widget.onChanged,
             validator: widget.validator,
             keyboardType: widget.keyboardType,
-             maxLines: widget.isMessage ? 5 : 1,
+            maxLines: widget.isMessage ? 5 : 1,
             minLines: widget.isMessage ? 5 : 1,
             onFieldSubmitted: widget.onSubmitted,
             initialValue: widget.initialValue,
             obscureText: widget.isPassword ? !showPassword : false,
-           
             decoration: InputDecoration(
                 filled: true,
                 fillColor: widget.enabled!
@@ -92,14 +92,12 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     fontHeight: 1.5,
                     color: myFocusNode.hasFocus
                         ? AppColors.primary
-                        : AppColors.hint),
+                        : AppColors.gray),
                 prefixIcon: widget.prefixIcon,
-                prefixIconColor: myFocusNode.hasFocus
-                    ? AppColors.primary
-                    : AppColors.hint,
-                suffixIconColor: myFocusNode.hasFocus
-                    ? AppColors.primary
-                    : AppColors.hint,
+                prefixIconColor:
+                    myFocusNode.hasFocus ? AppColors.primary : AppColors.gray,
+                suffixIconColor:
+                    myFocusNode.hasFocus ? AppColors.primary : AppColors.gray,
                 suffixIcon: widget.isPassword
                     ? showPassword
                         ? IconButton(
@@ -130,17 +128,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     : widget.suffixIcon,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 8, vertical: 18.h),
-                hintStyle:
-                    getRegularStyle(color: AppColors.hint, fontSize: 14),
+                hintStyle: getRegularStyle(color: AppColors.gray, fontSize: 14),
                 errorStyle: getRegularStyle(color: AppColors.red),
                 enabledBorder: OutlineInputBorder(
-                    borderSide:
-                        BorderSide(color: AppColors.hint, width: 1.5),
+                    borderSide: BorderSide(color: AppColors.gray, width: 1.5),
                     borderRadius: BorderRadius.all(
                         Radius.circular(widget.borderRadius ?? 10.r))),
                 disabledBorder: OutlineInputBorder(
-                    borderSide:
-                        BorderSide(color: AppColors.hint, width: 1.5),
+                    borderSide: BorderSide(color: AppColors.gray, width: 1.5),
                     borderRadius: BorderRadius.all(
                         Radius.circular(widget.borderRadius ?? 10.r))),
                 // focused border style
