@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:new_strucuture/core/exports.dart';
 
 class DropdownButtonFormFieldWidget extends StatefulWidget {
   const DropdownButtonFormFieldWidget(
@@ -30,7 +31,7 @@ class _DropdownButtonFormFieldWidgetState
         children: [
           Text(
             widget.title,
-            style: TextStyles.size18FontWidget400BlackWithOpacity8,
+            style: getBoldStyle(),
           ),
           SizedBox(
             height: 10.h,
@@ -40,7 +41,7 @@ class _DropdownButtonFormFieldWidgetState
             child: DropdownButtonFormField<String>(
                 value: widget.dataType,
                 decoration: InputDecoration(
-                 // labelText: widget.title,
+                  // labelText: widget.title,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
