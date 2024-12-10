@@ -14,7 +14,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blue1,
+      backgroundColor: AppColors.secondPrimary,
       body: Center(
         child: ElevatedButton(
             onPressed: () {

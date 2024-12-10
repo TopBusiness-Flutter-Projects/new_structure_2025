@@ -17,7 +17,7 @@ class _MainScreenState extends State<MainScreen> {
     return BlocBuilder<MainCubit, MainState>(
       builder: (context, state) {
         return Scaffold(
-          backgroundColor: AppColors.bink,
+          backgroundColor: AppColors.red,
           body: const Center(
             child: Text('Main Screen'),
           ),

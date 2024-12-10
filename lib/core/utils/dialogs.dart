@@ -5,8 +5,6 @@ import 'package:get/get.dart';
 import 'package:new_strucuture/core/utils/app_colors.dart';
 import 'package:overlay_loader_with_app_icon/overlay_loader_with_app_icon.dart';
 
-import 'get_size.dart';
-
 /*----------------------------------------------------------------------------*/
 /*------------------------------  Error Get Bar  -----------------------------*/
 /*----------------------------------------------------------------------------*/
@@ -82,45 +80,49 @@ messageGetBar(String message) {
 /*----------------------------------------------------------------------------*/
 /*------------------------------  Loading Dialog  ----------------------------*/
 /*----------------------------------------------------------------------------*/
-loadingDialog() {
-  Get.dialog(
-    Dialog(
-      backgroundColor: Colors.white,
-      insetAnimationCurve: Curves.bounceInOut,
-      insetPadding: const EdgeInsets.symmetric(horizontal: 40, vertical: 40),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 25),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              'جارى التحميل'.tr,
-              style: Get.textTheme.labelMedium!.copyWith(
-                color: Get.theme.primaryColor,
-              ),
-            ),
-            const SizedBox(width: 5),
-            // SpinKitCircle(),vx
-            CircularProgressIndicator(color: Get.theme.colorScheme.secondary),
-          ],
-        ),
-      ),
-    ),
-    barrierDismissible: false,
-    transitionCurve: Curves.easeInOutBack,
-  );
-}
+// loadingDialog() {
+//   Get.dialog(
+//     Dialog(
+//       backgroundColor: Colors.white,
+//       insetAnimationCurve: Curves.bounceInOut,
+//       insetPadding: const EdgeInsets.symmetric(horizontal: 40, vertical: 40),
+//       shape: RoundedRectangleBorder(
+//         borderRadius: BorderRadius.circular(12),
+//       ),
+//       child: Padding(
+//         padding: const EdgeInsets.symmetric(vertical: 25),
+//         child: Row(
+//           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//           mainAxisSize: MainAxisSize.min,
+//           children: [
+//             Text(
+//               'جارى التحميل'.tr,
+//               style: Get.textTheme.labelMedium!.copyWith(
+//                 color: Get.theme.primaryColor,
+//               ),
+//             ),
+//             const SizedBox(width: 5),
+//             // SpinKitCircle(),vx
+//             CircularProgressIndicator(color: Get.theme.colorScheme.secondary),
+//           ],
+//         ),
+//       ),
+//     ),
+//     barrierDismissible: false,
+//     transitionCurve: Curves.easeInOutBack,
+//   );
+// }
 
-newLoadingDialog({required bool isLoading, required Widget child}) {
+//!----------------------------------------------------------------------------/
+//!------------------------------  Loading Dialog we will use it  -------------/
+//!----------------------------------------------------------------------------/
+
+loadingDialog({required bool isLoading, required Widget child}) {
   return OverlayLoaderWithAppIcon(
       isLoading: isLoading,
-      circularProgressColor: Colors.red,
+      circularProgressColor: AppColors.primary,
       borderRadius: 15.0,
-      appIcon: Image.asset(ImageAssets.introBackgroundImage2),
+      appIcon: Image.asset(ImageAssets.appIcon),
       child: Container(child: child));
 }
 

@@ -60,7 +60,7 @@ class _SplashScreenState extends State<SplashScreen>
     super.initState();
     // context.read<SplashCubit>().getAdsOfApp();
 
-    // _startDelay();
+    _startDelay();
   }
 
   @override
@@ -71,27 +71,24 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   Widget build(BuildContext context) {
-    return newLoadingDialog(
-      isLoading: true,
-      child: Scaffold(
-        backgroundColor: AppColors.primary,
-        body: Stack(
-          alignment: Alignment.center,
-          children: [
-            Center(
-              child: Hero(
-                tag: 'logo',
-                child: SizedBox(
-                  child: Image.asset(
-                    ImageAssets.logoImage,
-                    // height: getSize(context) / 1.2,
-                    // width: getSize(context) / 1.2,
-                  ),
+    return Scaffold(
+      backgroundColor: AppColors.primary,
+      body: Stack(
+        alignment: Alignment.center,
+        children: [
+          Center(
+            child: Hero(
+              tag: 'logo',
+              child: SizedBox(
+                child: Image.asset(
+                  ImageAssets.logoImage,
+                  // height: getSize(context) / 1.2,
+                  // width: getSize(context) / 1.2,
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
     //   },

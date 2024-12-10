@@ -55,7 +55,7 @@ class _OnBoardinScreenState extends State<OnBoardinScreen> {
                       textDirection: TextDirection.ltr,
                       effect: WormEffect(
                         activeDotColor: AppColors.primary,
-                        dotColor: AppColors.gray1,
+                        dotColor: AppColors.gray,
                         dotHeight: getSize(context) / 44,
                         dotWidth: getSize(context) / 44,
                         type: WormType.underground,

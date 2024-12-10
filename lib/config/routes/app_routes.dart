@@ -32,7 +32,7 @@ class AppRoutes {
       //
       case Routes.loginRoute:
         return PageTransition(
-          child: LoginScreen(),
+          child: const LoginScreen(),
           type: PageTransitionType.fade,
           alignment: Alignment.center,
           duration: const Duration(milliseconds: 800),
@@ -40,7 +40,7 @@ class AppRoutes {
 
       case Routes.mainRoute:
         return PageTransition(
-          child: MainScreen(),
+          child: const MainScreen(),
           type: PageTransitionType.fade,
           alignment: Alignment.center,
           duration: const Duration(milliseconds: 800),
