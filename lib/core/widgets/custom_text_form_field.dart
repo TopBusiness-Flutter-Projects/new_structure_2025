@@ -92,14 +92,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     fontHeight: 1.5,
                     color: myFocusNode.hasFocus
                         ? AppColors.primary
-                        : AppColors.hint),
+                        : AppColors.gray),
                 prefixIcon: widget.prefixIcon,
                 prefixIconColor: myFocusNode.hasFocus
                     ? AppColors.primary
-                    : AppColors.hint,
+                    : AppColors.gray,
                 suffixIconColor: myFocusNode.hasFocus
                     ? AppColors.primary
-                    : AppColors.hint,
+                    : AppColors.gray,
                 suffixIcon: widget.isPassword
                     ? showPassword
                         ? IconButton(
@@ -131,16 +131,16 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 8, vertical: 18.h),
                 hintStyle:
-                    getRegularStyle(color: AppColors.hint, fontSize: 14),
+                    getRegularStyle(color: AppColors.gray, fontSize: 14),
                 errorStyle: getRegularStyle(color: AppColors.red),
                 enabledBorder: OutlineInputBorder(
                     borderSide:
-                        BorderSide(color: AppColors.hint, width: 1.5),
+                        BorderSide(color: AppColors.gray, width: 1.5),
                     borderRadius: BorderRadius.all(
                         Radius.circular(widget.borderRadius ?? 10.r))),
                 disabledBorder: OutlineInputBorder(
                     borderSide:
-                        BorderSide(color: AppColors.hint, width: 1.5),
+                        BorderSide(color: AppColors.gray, width: 1.5),
                     borderRadius: BorderRadius.all(
                         Radius.circular(widget.borderRadius ?? 10.r))),
                 // focused border style
