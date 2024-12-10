@@ -1,40 +1,41 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
+import 'package:new_strucuture/core/exports.dart';
 
-import '../utils/app_colors.dart';
 
-class ManageNetworkImage extends StatelessWidget {
-  const ManageNetworkImage(
-      {Key? key,
-      required this.imageUrl,
-      this.height = 0,
-      this.width = 0,
-        this.boxFit=BoxFit.cover,
-      this.borderRadius = 12})
-      : super(key: key);
+// Amer
+class CustomNetworkImage extends StatelessWidget {
+  const CustomNetworkImage({
+    super.key,
+    required this.image,
+    this.isUser = false,
+    this.height,
+    this.width,
+  });
 
-  final String imageUrl;
-  final double height;
-  final double width;
-  final double borderRadius;
- final BoxFit? boxFit;
+  final String image;
+  final bool isUser;
+  final double? height;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(borderRadius),
-      child: CachedNetworkImage(
-        imageUrl: imageUrl,
-        fit:boxFit ,
-        height: height != 0 ? height : null,
-        width: width != 0 ? width : null,
-
-        placeholder: (context, url) => Center(
-          child: CircularProgressIndicator(
-            color: AppColors.primary,
-          ),
-        ),
-      ),
-    );
+    return Image.network(image,
+        fit: BoxFit.cover,
+        height: height,
+        width: width,
+        loadingBuilder: (context, child, loadingProgress) {
+          if (loadingProgress == null) return child;
+          return Center(
+            child: CircularProgressIndicator(
+              color: AppColors.primary,
+            ),
+          );
+        },
+        errorBuilder: (context, error, stackTrace) => Image.asset(
+              isUser ? ImageAssets.profileDefault : ImageAssets.logoImage,
+              height: height,
+              width: width,
+              fit: BoxFit.cover,
+            ));
   }
 }

@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 class AppStrings {
   static const String appName = 'app_name';
 
