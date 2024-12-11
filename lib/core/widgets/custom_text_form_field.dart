@@ -81,7 +81,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
             onFieldSubmitted: widget.onSubmitted,
             initialValue: widget.initialValue,
             obscureText: widget.isPassword ? !showPassword : false,
-
             decoration: InputDecoration(
                 filled: true,
                 fillColor: widget.enabled!
