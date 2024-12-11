@@ -4,12 +4,14 @@ import 'dart:io';
 import 'package:dio/io.dart'; // Updated import
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:new_strucuture/core/api/status_code.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import '../error/exceptions.dart';
 import 'app_interceptors.dart';
 import 'base_api_consumer.dart';
 import 'end_points.dart';
 import 'package:new_strucuture/injector.dart' as injector;
+
+import 'status_code.dart';
 
 class DioConsumer implements BaseApiConsumer {
   final Dio client;
@@ -35,9 +37,16 @@ class DioConsumer implements BaseApiConsumer {
       };
 
     client.interceptors.add(injector.serviceLocator<AppInterceptors>());
-    if (kDebugMode) {
-      client.interceptors.add(injector.serviceLocator<LogInterceptor>());
-    }
+    client.interceptors.add(PrettyDioLogger(
+        requestHeader: true,
+        requestBody: true,
+        responseBody: true,
+        responseHeader: false,
+        error: true,
+        compact: true,
+        maxWidth: 90,
+        enabled: kDebugMode,
+     ));
   }
 
   @override

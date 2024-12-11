@@ -1,4 +1,5 @@
 import 'package:new_strucuture/core/exports.dart';
+
 class CustomTextField extends StatefulWidget {
   final String? labelText;
   final Function()? onTap;
@@ -76,7 +77,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             onChanged: widget.onChanged,
             validator: widget.validator,
             keyboardType: widget.keyboardType,
-             maxLines: widget.isMessage ? 5 : 1,
+            maxLines: widget.isMessage ? 5 : 1,
             minLines: widget.isMessage ? 5 : 1,
             onFieldSubmitted: widget.onSubmitted,
             initialValue: widget.initialValue,
@@ -93,12 +94,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
                         ? AppColors.primary
                         : AppColors.gray),
                 prefixIcon: widget.prefixIcon,
-                prefixIconColor: myFocusNode.hasFocus
-                    ? AppColors.primary
-                    : AppColors.gray,
-                suffixIconColor: myFocusNode.hasFocus
-                    ? AppColors.primary
-                    : AppColors.gray,
+                prefixIconColor:
+                    myFocusNode.hasFocus ? AppColors.primary : AppColors.gray,
+                suffixIconColor:
+                    myFocusNode.hasFocus ? AppColors.primary : AppColors.gray,
+
                 suffixIcon: widget.isPassword
                     ? showPassword
                         ? IconButton(
