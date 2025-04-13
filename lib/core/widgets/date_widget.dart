@@ -1,4 +1,3 @@
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:new_strucuture/core/exports.dart';
 
@@ -9,7 +8,7 @@ String getCurrentFormattedDate() {
 
 class DatePickerField extends StatelessWidget {
   final Function()? onTab;
- final DateTime? selectedDate;
+  final DateTime? selectedDate;
   final String title;
   final bool isWithTime;
   const DatePickerField({

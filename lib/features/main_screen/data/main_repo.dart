@@ -1,6 +1,6 @@
-import '../../../core/api/dio_consumer.dart';
+import '../../../core/api/base_api_consumer.dart';
 
 class MainRepo {
-  DioConsumer api;
+  BaseApiConsumer api;
   MainRepo(this.api);
 }

@@ -1,6 +1,4 @@
-
 import 'package:new_strucuture/core/exports.dart';
-
 
 TextStyle _getTextStyle(
     {required double fontSize,
@@ -82,6 +80,7 @@ TextStyle getSemiBoldStyle(
       fontSize: fontSize ?? 18.sp,
       fontHeight: fontHeight);
 }
+
 // bold style 700
 TextStyle getBoldStyle(
     {Color? color,

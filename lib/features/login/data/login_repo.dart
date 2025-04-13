@@ -1,7 +1,6 @@
-import 'package:new_strucuture/core/api/dio_consumer.dart';
+import '../../../core/api/base_api_consumer.dart';
 
 class LoginRepo {
-  DioConsumer api;
+  BaseApiConsumer api;
   LoginRepo(this.api);
-  
 }
