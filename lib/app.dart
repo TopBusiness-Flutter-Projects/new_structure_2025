@@ -3,17 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:new_strucuture/features/main_screen/cubit/cubit.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-
 import 'config/routes/app_routes.dart';
 import 'config/themes/app_theme.dart';
 import 'core/utils/app_strings.dart';
 import 'package:new_strucuture/injector.dart' as injector;
-
 import 'features/login/cubit/cubit.dart';
 import 'features/splash/cubit/cubit.dart';
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -57,6 +55,15 @@ class _MyAppState extends State<MyApp> {
           debugShowCheckedModeBanner: false,
           title: AppStrings.appName,
           onGenerateRoute: AppRoutes.onGenerateRoute,
+          // routes: {
+          // '/': (context) => isWithNotification
+          // ? (initialMessageRcieved?.data['type'] == "office_request")
+          // ? DetailsIssueScreen(newCourtCase: NewCourtCase())
+          // : ((initialMessageRcieved?.data['type'] == "court")
+          // ? DetailsIssueCustomerScreen()
+          // : NotificationsScreen(isLawyer: userType)
+          // : const SplashScreen(),
+          //   }
         ));
   }
 }

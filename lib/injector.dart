@@ -1,25 +1,18 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 import 'package:new_strucuture/features/login/cubit/cubit.dart';
 import 'package:new_strucuture/features/login/data/login_repo.dart';
 import 'package:new_strucuture/features/main_screen/cubit/cubit.dart';
 import 'package:new_strucuture/features/splash/cubit/cubit.dart';
 import 'package:get_it/get_it.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'core/api/app_interceptors.dart';
 import 'core/api/base_api_consumer.dart';
 import 'core/api/dio_consumer.dart';
 import 'features/main_screen/data/main_repo.dart';
 
-// import 'features/downloads_videos/cubit/downloads_videos_cubit.dart';
-
 final serviceLocator = GetIt.instance;
-
-Future<void> setup() async {
-//!-------------------------Declare Cubit-------------------------
+Future<void> setupCubit() async {
+  serviceLocator.registerFactory(() => SplashCubit());
 
   serviceLocator.registerFactory(
     () => SplashCubit(),
@@ -35,16 +28,14 @@ Future<void> setup() async {
       serviceLocator(),
     ),
   );
-//!----------------------------------------------------------------
-///////////////////////////////////////////////////////////////////
-//!-------------------------Declare Repo---------------------------
+}
+
+Future<void> setupRepo() async {
   serviceLocator.registerLazySingleton(() => LoginRepo(serviceLocator()));
   serviceLocator.registerLazySingleton(() => MainRepo(serviceLocator()));
+}
 
-//!----------------------------------------------------------------
-
-  //! External
-  // Shared Preferences
+Future<void> setupDependencyInjection() async {
   final sharedPreferences = await SharedPreferences.getInstance();
   serviceLocator.registerLazySingleton(() => sharedPreferences);
 

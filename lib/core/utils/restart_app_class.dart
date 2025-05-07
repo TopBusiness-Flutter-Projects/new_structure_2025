@@ -1,34 +1,43 @@
-
 import 'package:flutter/material.dart';
 
 class HotRestartController extends StatefulWidget {
   final Widget child;
 
-  HotRestartController({required this.child});
+  const HotRestartController({super.key, required this.child});
 
-  static performHotRestart(BuildContext context) {
+  static void performHotRestart(BuildContext context) {
     final _HotRestartControllerState? state =
-    context.findAncestorStateOfType<_HotRestartControllerState>();
-    state?.performHotRestart();
+        context.findAncestorStateOfType<_HotRestartControllerState>();
+    if (state != null) {
+      state.performHotRestart();
+    } else {
+      debugPrint("No ancestor HotRestartController found in the widget tree.");
+    }
   }
 
   @override
-  _HotRestartControllerState createState() => new _HotRestartControllerState();
+  _HotRestartControllerState createState() => _HotRestartControllerState();
 }
 
 class _HotRestartControllerState extends State<HotRestartController> {
-  Key key = new UniqueKey();
+  late Key _currentKey;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentKey = UniqueKey();
+  }
 
   void performHotRestart() {
-    this.setState(() {
-      key = new UniqueKey();
+    setState(() {
+      _currentKey = UniqueKey();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return new Container(
-      key: key,
+    return KeyedSubtree(
+      key: _currentKey,
       child: widget.child,
     );
   }

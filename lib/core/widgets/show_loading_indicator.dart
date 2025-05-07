@@ -1,8 +1,6 @@
-
 import 'dart:io';
 
 import '../exports.dart';
-
 
 class CustomLoadingIndicator extends StatefulWidget {
   const CustomLoadingIndicator({super.key, this.withLogo = true});
@@ -42,30 +40,23 @@ class _CustomLoadingIndicatorState extends State<CustomLoadingIndicator>
                 height: 15.h,
                 width: 15.h,
               ),
-              // Platform specific loading indicator in the background
               Platform.isIOS
-                  ?
-                  // const CupertinoActivityIndicator(
-                  //         animating: true,
-                  //         radius: 30,
-                  //       )
-                  SizedBox(
-                      height: 55.h, // Increased size
-                      width: 55.h, // Increased size
+                  ? SizedBox(
+                      height: 55.h,
+                      width: 55.h,
                       child: CircularProgressIndicator(
                         color: AppColors.primary,
-                        strokeWidth: 3, // Slightly increased thickness
+                        strokeWidth: 3,
                       ),
                     )
                   : SizedBox(
-                      height: 55.h, // Increased size
-                      width: 55.h, // Increased size
+                      height: 55.h,
+                      width: 55.h,
                       child: CircularProgressIndicator(
                         color: AppColors.primary,
-                        strokeWidth: 3, // Slightly increased thickness
+                        strokeWidth: 3,
                       ),
                     ),
-              // Rotating logo in the center
               RotationTransition(
                 turns: _controller,
                 child: Image.asset(
@@ -77,18 +68,13 @@ class _CustomLoadingIndicatorState extends State<CustomLoadingIndicator>
             ],
           )
         : Platform.isIOS
-            ?
-            // const CupertinoActivityIndicator(
-            //             animating: true,
-            //             radius: 30,
-            //           )
-            CircularProgressIndicator(
+            ? CircularProgressIndicator(
                 color: AppColors.primary,
-                strokeWidth: 3, // Slightly increased thickness
+                strokeWidth: 3,
               )
             : CircularProgressIndicator(
                 color: AppColors.primary,
-                strokeWidth: 3, // Slightly increased thickness
+                strokeWidth: 3,
               );
   }
 }

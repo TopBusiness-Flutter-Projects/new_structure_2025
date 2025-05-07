@@ -15,6 +15,7 @@ class AppColors {
   static Color transparent = Colors.transparent;
 
   static Color gray = Colors.grey;
+  static Color grey = HexColor('#8EA3AC');
 
   Color darken(Color color, [double amount = .1]) {
     assert(amount >= 0 && amount <= 1);

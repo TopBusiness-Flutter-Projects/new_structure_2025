@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class MySvgWidget extends StatelessWidget {
-  const MySvgWidget({Key? key, required this.path, required this.imageColor, required this.size})
-      : super(key: key);
+  const MySvgWidget(
+      {super.key,
+      required this.path,
+      required this.imageColor,
+      required this.size});
 
   final String path;
   final Color imageColor;
@@ -14,12 +17,8 @@ class MySvgWidget extends StatelessWidget {
     return SizedBox(
       height: size,
       width: size,
-      child: SvgPicture.asset(
-        path,
-        colorFilter: ColorFilter.mode(imageColor, BlendMode.srcIn),
-        // height: size,
-        // width: size,
-      ),
+      child: SvgPicture.asset(path,
+          colorFilter: ColorFilter.mode(imageColor, BlendMode.srcIn)),
     );
   }
 }

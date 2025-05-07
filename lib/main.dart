@@ -1,20 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:new_strucuture/injector.dart' as injector;
 import 'app.dart';
-import 'app_bloc_observer.dart';
+import 'core/init_config/initalization_config.dart';
 import 'core/utils/restart_app_class.dart';
-
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await EasyLocalization.ensureInitialized();
-  await ScreenUtil.ensureScreenSize();
-
-  await injector.setup();
-  Bloc.observer = AppBlocObserver();
-
+  await initializationClass();
   runApp(
     EasyLocalization(
       supportedLocales: const [Locale('ar', ''), Locale('en', '')],

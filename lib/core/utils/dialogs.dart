@@ -12,7 +12,7 @@ errorGetBar(String message) {
   Get.showSnackbar(
     GetSnackBar(
       messageText: Text(
-        message!,
+        message,
         style: Get.textTheme.titleSmall!.copyWith(
           color: Colors.white,
           height: 1.3,
@@ -76,57 +76,3 @@ messageGetBar(String message) {
     snackPosition: SnackPosition.TOP,
   ));
 }
-
-/*----------------------------------------------------------------------------*/
-/*------------------------------  Loading Dialog  ----------------------------*/
-/*----------------------------------------------------------------------------*/
-// loadingDialog() {
-//   Get.dialog(
-//     Dialog(
-//       backgroundColor: Colors.white,
-//       insetAnimationCurve: Curves.bounceInOut,
-//       insetPadding: const EdgeInsets.symmetric(horizontal: 40, vertical: 40),
-//       shape: RoundedRectangleBorder(
-//         borderRadius: BorderRadius.circular(12),
-//       ),
-//       child: Padding(
-//         padding: const EdgeInsets.symmetric(vertical: 25),
-//         child: Row(
-//           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//           mainAxisSize: MainAxisSize.min,
-//           children: [
-//             Text(
-//               'جارى التحميل'.tr,
-//               style: Get.textTheme.labelMedium!.copyWith(
-//                 color: Get.theme.primaryColor,
-//               ),
-//             ),
-//             const SizedBox(width: 5),
-//             // SpinKitCircle(),vx
-//             CircularProgressIndicator(color: Get.theme.colorScheme.secondary),
-//           ],
-//         ),
-//       ),
-//     ),
-//     barrierDismissible: false,
-//     transitionCurve: Curves.easeInOutBack,
-//   );
-// }
-
-//!----------------------------------------------------------------------------/
-//!------------------------------  Loading Dialog we will use it  -------------/
-//!----------------------------------------------------------------------------/
-
-loadingDialog({required bool isLoading, required Widget child}) {
-  return OverlayLoaderWithAppIcon(
-      isLoading: isLoading,
-      circularProgressColor: AppColors.primary,
-      borderRadius: 15.0,
-      appIcon: Image.asset(ImageAssets.appIcon),
-      child: Container(child: child));
-}
-
-/*----------------------------------------------------------------------------*/
-/*------------------------------  Bottom Sheet  ----------------------------*/
-/*----------------------------------------------------------------------------*/
-
