@@ -14,9 +14,7 @@ final serviceLocator = GetIt.instance;
 Future<void> setupCubit() async {
   serviceLocator.registerFactory(() => SplashCubit());
 
-  serviceLocator.registerFactory(
-    () => SplashCubit(),
-  );
+  
 
   serviceLocator.registerFactory(
     () => LoginCubit(
